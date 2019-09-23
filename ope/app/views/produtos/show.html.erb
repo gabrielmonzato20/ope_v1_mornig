@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="col-md-12">
+<div class="row">
+  <div class="col-md-12">
+                <h1 class="only-bottom-margin"><%= @produto.descricao%></h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="text-muted">Marca:</span> <%=@produto.marca %><br>
+                <span class="text-muted">Cor</span> <span style = 'background:<%= @produto.cor  %> '><%= @produto.cor  %></span><br>
+                <span class="text-muted">Preco</span> <%= @produto.preco %> %><br>
+                <small class="text-muted">Cadastramento: <%=@produto.created_at %></small>
+              </div>
+</div>
+</div>
+
+<%= link_to 'Editar', edit_produto_path(@produto),class: 'btn btn-warning' %> |
+<%= link_to 'Voltar', produtos_path,class:'btn btn-danger' %>

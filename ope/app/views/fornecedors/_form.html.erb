@@ -1,0 +1,53 @@
+<%= form_with(model: fornecedor, local: true) do |form| %>
+  <% if fornecedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fornecedor.errors.count, "error") %> prohibited this fornecedor from being saved:</h2>
+
+      <ul>
+        <% fornecedor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :nome %>
+                            <%= form.text_field :nome ,class:'form-control'%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :email %>
+                            <%= form.email_field :email ,class:'form-control'%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :telefone %>
+                              <%= form.telephone_field :telefone,class:'form-control' %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :cpf %>
+                            <%= form.text_field :cpf,class:'form-control' %>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :produto %>
+                            <%= collection_select(:fornecedor,:produto_ids,Produto.all,:id,:descricao,{} ,{class:'browser-default custom-select',:multiple  => true}) %>
+                          </div>
+                        </div>
+
+  </div>
+
+
+
+
+  <div class="d-flex justify-content-center">
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

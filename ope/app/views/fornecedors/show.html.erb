@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-12">
+<div class="row">
+  <div class="col-md-12">
+                <h1 class="only-bottom-margin"><%= @fornecedor.nome %></h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="text-muted">Email:</span> <%=@fornecedor.email %><br>
+                <span class="text-muted">Cpf</span> <%= @fornecedor.cpf %><br>
+                <span class="text-muted">Telefone</span> <%=@fornecedor.telefone %><br>
+                <span class="text-muted">Produtos</span> <span><% @fornecedor.produtos.each do |prod| %><%= prod.descricao %> <% end%></span><br>
+                <small class="text-muted">Criacao: <%=@fornecedor.created_at %></small>
+              </div>
+</div>
+</div>
+<%= link_to 'Editar', edit_fornecedor_path(@fornecedor) , class: 'btn btn-warning' %> |
+<%= link_to 'Voltar', fornecedors_path, class: ' btn btn-danger' %>

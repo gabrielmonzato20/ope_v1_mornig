@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="col-md-12">
+<div class="row">
+  <div class="col-md-12">
+                <h1 class="only-bottom-margin">Numero:<%= @pedido.id %></h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="text-muted">Cliente:</span> <%=@pedido.cliente.Nome%><br>
+                <span class="text-muted">Atendente</span> <%= @pedido.atendente.nome %><br>
+                <span class="text-muted">Produtos</span>   <span><% @pedido.produtos.each do |produto| %><%= produto.descricao =%>,<%end%></span><br>
+                <small class="text-muted">Geracao: <%=@pedido.created_at %></small>
+              </div>
+</div>
+</div>
+
+<%= link_to 'Editar', edit_pedido_path(@pedido), class: 'btn btn-warning' %> |
+<%= link_to 'Voltar', pedidos_path ,class: 'btn btn-danger'%>

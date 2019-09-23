@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-12">
+<div class="row">
+  <div class="col-md-12">
+                <h1 class="only-bottom-margin">  <%= @atendente.nome %></h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="text-muted">Email:</span>  <%= @atendente.email %><br>
+                <span class="text-muted">Senha</span> <%= @atendente.senha %><br>
+                <small class="text-muted">Admissao: <%=@atendente.created_at %></small>
+              </div>
+</div>
+
+<%= link_to 'Editar', edit_atendente_path(@atendente),class: 'btn btn-warning'%>
+<%= link_to 'Voltar', atendentes_path,class:'btn btn-danger' %>

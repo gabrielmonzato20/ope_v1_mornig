@@ -1,0 +1,42 @@
+<%= form_with(model: pedido, local: true) do |form| %>
+  <% if pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+        <% pedido.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+
+                            <%= form.label :cliente %>
+                            <%= collection_select(:pedido,:cliente_id,Cliente.all,:id,:Nome,{} ,{class:'browser-default custom-select'})%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :atendente_id %>
+                            <%= collection_select(:pedido,:atendente_id,Atendente.all,:id,:nome,{} ,{class:'browser-default custom-select'}) %>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :produto %>
+                            <%= collection_select(:pedido,:produto_ids,Produto.all,:id,:descricao,{} ,{class:'browser-default custom-select',:multiple  => true}) %>
+                          </div>
+                        </div>
+
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

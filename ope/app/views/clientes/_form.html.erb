@@ -1,0 +1,53 @@
+<%= form_with(model: cliente, local: true ) do |form| %>
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+        <% cliente.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+
+                            <%= form.label :Nome %>
+                            <%= form.text_field :Nome,class:'form-control'%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :Email %>
+                            <%= form.text_field :Email,class:'form-control' %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :Cpf %>
+                            <%= form.text_field :Cpf ,class:'form-control'%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :Telefone %>
+                            <%= form.text_field :Telefone,class:'form-control' %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.label :Rg %>
+                            <%= form.text_field :Rg,class:'form-control' %>
+                          </div>
+                        </div>
+  </div>
+
+
+
+
+  <div class="d-flex justify-content-center">
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

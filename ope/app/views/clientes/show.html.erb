@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-12">
+<div class="row">
+  <div class="col-md-12">
+                <h1 class="only-bottom-margin"><%= @cliente.Nome %></h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="text-muted">Email:</span> <%=@cliente.Email %><br>
+                <span class="text-muted">Cpf</span> <%= @cliente.Cpf %><br>
+                <span class="text-muted">Telefone</span> <%=@cliente.Telefone %><br>
+                <span class="text-muted">Rg</span> <%=@cliente.Rg %><br>
+                <small class="text-muted">Admissao: <%=@cliente.created_at %></small>
+              </div>
+</div>
+</div>
+<%= link_to 'Editar', edit_cliente_path(@cliente),class: 'btn btn-warning' %>
+<%= link_to 'Voltar', clientes_path, class:'btn btn-danger' %>
